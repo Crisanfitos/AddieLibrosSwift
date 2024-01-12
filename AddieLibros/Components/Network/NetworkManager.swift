@@ -44,6 +44,7 @@ final class NetworkManager {
     
     func getLocation(address: String, delta: Double) async throws -> Address{
         let pAddress = address.replacingOccurrences(of: " ", with: "%20")
+        print(pAddress)
         let urlString = "\(mapBaseUrl)?access_key=\(apiKey)&query=\(pAddress)"
         guard let url = URL(string: urlString) else{
             throw NWError.invalidURL
@@ -59,6 +60,7 @@ final class NetworkManager {
         
         do {
             let add = try JSONDecoder().decode(Address.self, from: data)
+            print(add)
             let dat = add.data.first ?? Datum()
             addressResult.data.removeAll()
             addressResult.data.append(dat)

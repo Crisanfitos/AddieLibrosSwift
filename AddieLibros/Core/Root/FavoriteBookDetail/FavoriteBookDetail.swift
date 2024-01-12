@@ -76,7 +76,7 @@ struct FavoriteBookDetail: View {
                             }
                         }
                     }
-                    LazyVStack(spacing: 10){
+                    ScrollView(.vertical){
                         
                         Text("Know more about this places -->")
                             .font(.headline)
